@@ -4,6 +4,7 @@ import { Home as HomeIcon, Image as ImageIcon, Sparkles, Star, Heart, Crown } fr
 
 const navItems = [
   { path: '/', label: '홈', icon: HomeIcon },
+  { path: '/bg', label: '배경', icon: ImageIcon },
   { path: '/page2', label: '비렉스', icon: Sparkles },
   { path: '/page3', label: '카엘리스', icon: Star },
   { path: '/page4', label: '필레온', icon: Crown },
@@ -45,6 +46,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 function Home() {
   const characters = [
+    { path: '/bg', img: 'https://gbe88.uk/rb/BG_14.webp', title: '배경 이미지' },
     { path: '/page2', img: 'https://gbe88.uk/thum/st1.webp', title: '비렉스' },
     { path: '/page3', img: 'https://gbe88.uk/thum/st2.webp', title: '카엘리스' },
     { path: '/page4', img: 'https://gbe88.uk/thum/st3.webp', title: '필레온' },
@@ -94,8 +96,8 @@ function Home() {
   );
 }
 
-function Gallery({ prefix, count, title }: { prefix: string; count: number; title: string }) {
-  const images = Array.from({ length: count }, (_, i) => `https://gbe88.uk/rb/${prefix}_${i + 1}.webp`);
+function Gallery({ prefix, count, title, startIdx = 1 }: { prefix: string; count: number; title: string; startIdx?: number }) {
+  const images = Array.from({ length: count }, (_, i) => `https://gbe88.uk/rb/${prefix}_${i + startIdx}.webp`);
 
   return (
     <div className="animate-in slide-in-from-bottom-4 fade-in duration-500">
@@ -129,6 +131,7 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/bg" element={<Gallery prefix="BG" count={12} startIdx={14} title="배경 이미지" />} />
           <Route path="/page2" element={<Gallery prefix="A" count={9} title="비렉스" />} />
           <Route path="/page3" element={<Gallery prefix="B" count={9} title="카엘리스" />} />
           <Route path="/page4" element={<Gallery prefix="C" count={9} title="필레온" />} />

@@ -49,7 +49,7 @@ function Home() {
     { path: '/page2', img: 'https://gbe88.uk/thum/st1.webp', title: '비렉스' },
     { path: '/page3', img: 'https://gbe88.uk/thum/st2.webp', title: '카엘리스' },
     { path: '/page4', img: 'https://gbe88.uk/thum/st3.webp', title: '필레온' },
-    { path: '/page5', img: 'https://gbe88.uk/thum/st4.webp', title: '엘리라' },
+    { path: '/page5', img: 'https://gbe88.uk/thum/st4.webp?v=2', title: '엘리라' },
   ];
 
   return (

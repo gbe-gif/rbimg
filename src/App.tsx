@@ -46,7 +46,6 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 function Home() {
   const characters = [
-    { path: '/bg', img: 'https://gbe88.uk/rb/BG_14.webp', title: '배경 이미지' },
     { path: '/page2', img: 'https://gbe88.uk/thum/st1.webp', title: '비렉스' },
     { path: '/page3', img: 'https://gbe88.uk/thum/st2.webp', title: '카엘리스' },
     { path: '/page4', img: 'https://gbe88.uk/thum/st3.webp', title: '필레온' },
@@ -91,6 +90,33 @@ function Home() {
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="w-full max-w-4xl mt-6 md:mt-8">
+        <Link 
+          to="/bg"
+          className="group relative flex flex-col items-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#e4c48a]/50"
+        >
+          <div className="w-full aspect-[21/9] overflow-hidden bg-gray-50">
+            <img 
+              src="https://gbe88.uk/thum/base.webp" 
+              alt="배경 이미지" 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+            <span className="text-white font-medium px-4 py-2 bg-[#e4c48a]/90 rounded-full text-sm shadow-lg backdrop-blur-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              누르면 장소 이미지 보기로 이동
+            </span>
+          </div>
+          <div className="p-4 w-full text-center bg-white">
+            <p className="text-sm font-medium text-gray-500 group-hover:text-[#f8c2c2] transition-colors">
+              장소 이미지 보기
+            </p>
+          </div>
+        </Link>
       </div>
     </div>
   );

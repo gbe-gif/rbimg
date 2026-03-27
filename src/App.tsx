@@ -180,9 +180,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bg" element={<Gallery prefix="BG" count={12} startIdx={14} title="배경 이미지" />} />
-          <Route path="/page2" element={<Gallery prefix="A" count={9} title="비렉스" bonusImage="https://gbe88.uk/thum/virex.webp" />} />
-          <Route path="/page3" element={<Gallery prefix="B" count={9} title="카엘리스" bonusImage="https://gbe88.uk/thum/kaelis.webp" />} />
-          <Route path="/page4" element={<Gallery prefix="C" count={9} title="필레온" bonusImage="https://gbe88.uk/thum/Plieon.webp" />} />
+          <Route path="/page2" element={<Gallery prefix="A" count={13} title="비렉스" bonusImage="https://gbe88.uk/thum/virex.webp" />} />
+          <Route path="/page3" element={<Gallery prefix="B" count={13} title="카엘리스" bonusImage="https://gbe88.uk/thum/kaelis.webp" />} />
+          <Route path="/page4" element={<Gallery prefix="C" count={13} title="필레온" bonusImage="https://gbe88.uk/thum/Plieon.webp" />} />
           <Route path="/page5" element={<Gallery prefix="D" count={13} title="엘리라" bonusImage="https://gbe88.uk/thum/Elyra.webp" />} />
         </Routes>
       </Layout>

@@ -122,7 +122,7 @@ function Home() {
   );
 }
 
-function Gallery({ prefix, count, title, startIdx = 1 }: { prefix: string; count: number; title: string; startIdx?: number }) {
+function Gallery({ prefix, count, title, startIdx = 1, bonusImage }: { prefix: string; count: number; title: string; startIdx?: number; bonusImage?: string }) {
   const images = Array.from({ length: count }, (_, i) => `https://gbe88.uk/rb/${prefix}_${i + startIdx}.webp`);
 
   return (
@@ -134,7 +134,7 @@ function Gallery({ prefix, count, title, startIdx = 1 }: { prefix: string; count
         <div className="w-16 h-1 bg-[#f8c2c2] mx-auto mt-4 rounded-full"></div>
       </header>
 
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 mb-12">
         {images.map((src, index) => (
           <div key={index} className="break-inside-avoid rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-gray-50 border border-gray-100">
             <img
@@ -147,6 +147,28 @@ function Gallery({ prefix, count, title, startIdx = 1 }: { prefix: string; count
           </div>
         ))}
       </div>
+
+      {bonusImage && (
+        <div className="mt-16 mb-8">
+          <header className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 text-[#e4c48a]" />
+              <span>서비스컷</span>
+              <Sparkles className="w-5 h-5 text-[#e4c48a]" />
+            </h3>
+            <p className="text-gray-500 mt-2 text-sm">스킬샷</p>
+          </header>
+          <div className="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-[#e4c48a]/30">
+            <img
+              src={bonusImage}
+              alt={`${title} 서비스컷 (스킬샷)`}
+              className="w-full h-auto object-contain"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -158,10 +180,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bg" element={<Gallery prefix="BG" count={12} startIdx={14} title="배경 이미지" />} />
-          <Route path="/page2" element={<Gallery prefix="A" count={9} title="비렉스" />} />
-          <Route path="/page3" element={<Gallery prefix="B" count={9} title="카엘리스" />} />
-          <Route path="/page4" element={<Gallery prefix="C" count={9} title="필레온" />} />
-          <Route path="/page5" element={<Gallery prefix="D" count={13} title="엘리라" />} />
+          <Route path="/page2" element={<Gallery prefix="A" count={9} title="비렉스" bonusImage="https://gbe88.uk/thum/virex.webp" />} />
+          <Route path="/page3" element={<Gallery prefix="B" count={9} title="카엘리스" bonusImage="https://gbe88.uk/thum/kaelis.webp" />} />
+          <Route path="/page4" element={<Gallery prefix="C" count={9} title="필레온" bonusImage="https://gbe88.uk/thum/Plieon.webp" />} />
+          <Route path="/page5" element={<Gallery prefix="D" count={13} title="엘리라" bonusImage="https://gbe88.uk/thum/Elyra.webp" />} />
         </Routes>
       </Layout>
     </BrowserRouter>
